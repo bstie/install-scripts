@@ -5,4 +5,6 @@ set -e
 
 sudo apt update && sudo apt install wget neofetch && \
 wget https://raw.githubusercontent.com/bstie/install-scripts/master/neofetch/config -P ~/.config/neofetch/config && \
-neofetch
+sudo echo -e '#!/bin/sh\nneofetch' > /etc/update-motd.d/20-neofetch && \
+sudo chmod +x /etc/update-motd.d/20-neofetch
+echo "neofetch installed. Logout and login to check if neofetch is working."
